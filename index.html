@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kwaterniony</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+<nav>
+
+</nav>
+<main>
+    <section>
+        Chcę policzyć...
+        <input list="browsers" id="inputMathMode">
+
+        <datalist id="browsers">
+            <option value="Sprzężenie">
+            <option value="Moduł">
+            <option value="Wyznacznik">
+        </datalist>
+
+        <div class="coefficientFlexContainer">
+
+            <div class="coefficientFlexBox">
+                <label for="input-1">Wartość współczynnika a</label>
+                <br />
+                <input class="input-coefficient" type="text" id="input-1" placeholder="współczynnik a" pattern="^-?(\d*\.\d+|\d+\.\d*|\d+)?$" oninput="validity.valid||(value='');">
+            </div>
+
+            <div class="coefficientFlexBox">
+                <label for="input-2">Wartość współczynnika b</label>
+                <br />
+                <input type="text" class="input-coefficient" id="input-2" placeholder="współczynnik b" pattern="^-?(\d*\.\d+|\d+\.\d*|\d+)?$" oninput="validity.valid||(value='');">
+            </div>
+            <div class="coefficientFlexBox">
+                <label for="input-3">Wartość współczynnika c</label>
+                <br />
+                <input type="text" class="input-coefficient" id="input-3" placeholder="współczynnik c" pattern="^-?(\d*\.\d+|\d+\.\d*|\d+)?$" oninput="validity.valid||(value='');">
+            </div>
+
+            <div class="coefficientFlexBox">
+                <label for="input-4">Wartość współczynnika d</label>
+                <br />
+                <input type="text" class="input-coefficient" id="input-4" placeholder="współczynnik d" pattern="^-?(\d*\.\d+|\d+\.\d*|\d+)?$" oninput="validity.valid||(value='');">
+            </div>
+
+        </div>
+
+        <br />
+        <button onclick="validateForm()">Wynik</button>
+
+        <br />
+
+        Wynik wynosi: <span id="fajnyWynik"></span>
+
+
+
+
+    </section>
+    <section>
+
+
+        <h2>Kwaterniony</h2>
+        <img src="img.png" style="height: 350px;">
+
+        <div id="toc_container">
+            <p class="toc_title">Contents</p>
+            <ul class="toc_list">
+                <li>
+                    <a href="#">Co to jest kwaternion?</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionAdding">Dodawanie kwaternionów</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionSubstracting">Odejmowanie kwaternionów</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionMultiplying">Mnożenie kwaternionów</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionConjugate">Sprzężenie kwaternionu</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionDeterminant">Wyznacznik kwaternionu</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionMagnitude">Moduł kwaternionu</a>
+                </li>
+                <li>
+                    <a href="#contentsQuaternionReciprocal">Odwrotność kwaternionu</a>
+                </li>
+            </ul>
+        </div>
+
+        <br />
+        &nbsp; Kwaternion to struktura algebraiczna wprowadzona przez irlandzkiego matematyka Williama Hamiltona w roku 1843, będąca czterowymiarowym rozszerzeniem ciała liczb zespolonych. W dzisiejszych czasach kwaterniony są używane chociażby w grafice komputerowej do wykonywania obrotów w przestrzeni trójwymiarowej.
+        <br /> <br />
+        &nbsp; Istnieje kilka sposobów przedstawienia kwaternionu - można użyć chociażby postaci macierzowej, czyli macierzy z przestrzeni
+        <h3>
+            \begin{equation*}
+            M_{2x2}(\mathbb{C})
+            \end{equation*}
+        </h3>
+        postaci
+        \begin{bmatrix}
+        z & w \\
+        -\overline{\rm w} & z
+        \end{bmatrix}
+
+        gdzie
+        \begin{equation*}
+        z,w \in \mathbb{C}
+        \end{equation*}
+
+        lub postaci algebraicznej, zgodnie z którą kwaternion to obiekt postaci:
+        \begin{equation*}
+        q \; = \; ae \; + \; bi \; + \; cj \; + \; dk,
+        \end{equation*}
+
+        gdzie
+        \begin{equation*}
+        a, b, c, d \; \in \; \mathbb{R},
+        \end{equation*}
+
+
+        zaś <script type="math/tex">e, i, j, k</script>
+        to pewne obiekty (jednostki urojone),  dla których zachodzi:
+
+        \begin{equation*}
+        i^2 \, = \,j^2 \, = \,k^2 \, = \, \, -1.
+        \end{equation*}
+
+        <br /><br /><br /><br />
+
+        <h3 id="contentsQuaternionAdding">Dodawanie kwaternionów</h3>
+        Dodawanie kwaternionów przebiega zgodnie ze wzorem:
+        \begin{equation*}
+        q_1 + q_2 \; = \\
+        = \; a_1e \; + \; b_1i \; + \; c_1j \; + \; d_1k \;\;+  \;\; a_2e \; + \; b_2i \; + \; c_2j \; + \; d_2k \; = \\
+        = \; (a_1 + a_2)e \; + \; (b_1 + b_2)i \; + \; (c_1+c_2)j \; + \; (d_1+d_2)k
+        \end{equation*}
+
+        gdzie:
+        \begin{equation*}
+        a_1, ~a_2,~ b_1,~ b_2,~ c_1,~ c_2,~ d_1,~ d_2 \; \in \; \mathbb{R}
+        \end{equation*}
+
+
+        <h3 id="contentsQuaternionSubstracting">Odejmowanie kwaternionów</h3>
+        Odejmowanie kwaternionów przebiega zgodnie ze wzorem:
+        \begin{equation*}
+        q_1 - q_2 \; = \\
+        = \; a_1e \; + \; b_1i \; + \; c_1j \; + \; d_1k \;\;-  \;\; (a_2e \; + \; b_2i \; + \; c_2j \; + \; d_2k) \; = \\
+        = \; (a_1 - a_2)e \; + \; (b_1 - b_2)i \; + \; (c_1-c_2)j \; + \; (d_1-d_2)k
+        \end{equation*}
+
+        gdzie:
+
+        \begin{equation*}
+        a_1, ~a_2,~ b_1,~ b_2,~ c_1,~ c_2,~ d_1,~ d_2 \; \in \; \mathbb{R}
+        \end{equation*}
+
+
+        <h3 id="contentsQuaternionMultiplying">Mnożenie kwaternionów</h3>
+        uwzględniwszy, że iloczyn dwóch kwaternionów również jest kwaternionem.
+        Metoda ta używa zwykłych reguł mnożenia wielomianów.
+
+        Mnożenie kwaternionów przebiega zgodnie ze wzorem:
+        \begin{equation*}
+        q_1 * q_2 = \\
+        = \; (a_1e \; + \; b_1i \; + \; c_1j \; + \; d_1k) \;\;*  \;\; (a_2e \; + \; b_2i \; + \; c_2j \; + \; d_2k) \; = \\
+        = \; (a_1a_2 - b_1b_2 - c_1c_2 - d_1d_2) \\
+        \;\;+  \;(a_1b_2 - b_1a_2 + c_1d_2 - d_1c_2)i \\
+        \;\;+  \;(a_1c_2 - b_1d_2 + c_1a_2 - d_1b_2)j \\
+        \;\;+  \;(a_1d_2 - b_1c_2 + c_1b_2 - d_1a_2)k \\
+        \end{equation*}
+        gdzie:
+        \begin{equation*}
+        a_1, ~a_2,~ b_1,~ b_2,~ c_1,~ c_2,~ d_1,~ d_2 \; \in \; \mathbb{R}
+        \end{equation*}
+
+        <h3 id="contentsQuaternionConjugate">Sprzężenie kwaternionu</h3>
+        Sprzężenie kwaternionu definiujemy jako:
+        \begin{equation*}
+        \overline{\rm q} \; = \; ae \; - \; bi \; - \; cj \; - \; dk
+        \end{equation*}
+
+        gdzie:
+        \begin{equation*}
+        a, b, c, d \; \in \; \mathbb{R}
+        \end{equation*}
+
+
+        <h3 id="contentsQuaternionDeterminant">Wyznacznik kwaternionu</h3>
+        W następnej kolejności przyjrzymy się wyznacznikowi kwaternionu przy okazji metody
+        Wyznacznik kwaternionu to:
+        \begin{equation*}
+        a^2+b^2+c^2+d^2
+        \end{equation*}
+
+
+        gdzie:
+        \begin{equation*}
+        a, b, c, d \; \in \; \mathbb{R}
+        \end{equation*}
+
+        <h3 id="contentsQuaternionMagnitude">Moduł kwaternionu</h3>
+        Moduł kwaternionu to pierwiastek kwadratowy z wyznacznika:
+        oznaczenie =
+        \begin{equation*}
+        \sqrt{a^2+b^2+c^2+d^2}
+        \end{equation*}
+
+        gdzie:
+        \begin{equation*}
+        a, b, c, d \; \in \; \mathbb{R}
+        \end{equation*}
+
+
+        <h3 id="contentsQuaternionReciprocal">Odwrotność kwaternionu</h3>
+        Iloczyn kwaternionu i jego odwrotności powinien być równy 1, zatem:
+        Jest to iloraz sprzężenia kwaternionu i jego modułu.
+
+        \begin{equation*}
+        q^{-1} = \frac{\overline{\rm q} }{\|q\|} = \frac{\; ae \; - \; bi \; - \; cj \; - \; dk}{\sqrt{a^2+b^2+c^2+d^2}}
+        \end{equation*}
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+    </section>
+</main>
+<footer>
+    siema
+</footer>
+</body>
+</html>
+
+<!-- zrobic sectiony flexem, na telefonie sie powinno pionowo jako jedna kolumna pokazywac, a na laptopie w rzędzie obok siebie -->
+
+<!--
+
+                \begin{equation*}
+                \sqrt{x^2+1}
+                \end{equation*}
+
+                \begin{equation*}
+                i^2 \, = \,j^2 \, = \,k^2 \, = \, \, -1
+                \end{equation*}
+
+
+
+                <script type="math/tex">i^2 \, = \,j^2 \, = \,k^2 \, = \, \, -1</script>
+
+                <br />
+
+                <h3>
+                    <script type="math/tex">
+                     a, b, c, d \; \in \; \mathbb{R}
+
+                    q^{-1} = \frac{\overline{\rm q} }{\|q\|} = \frac{\; ae \; - \; bi \; - \; cj \; - \; dk}{\sqrt{a^2+b^2+c^2+d^2}}
+                    </script>
+                </h3>
+
+-->
+
+
+<!--
+
+              <input type="text" step="0.01" pattern="^-?(\d*\.\d+|\d+\.\d*|\d+)?$" oninput="validity.valid||(value='');" title="Wprowadź liczbę rzeczywistą" required>
+              działa -123. działa 0. ale nie działa 123.123:
+              <input type="text" step="0.01" pattern="^-?(?!0\d)\d*(\.\d+)?$" oninput="validity.valid||(value='');" title="Wprowadź liczbę rzeczywistą" required>
+              działa 123.123. działa 00000, nie działa -123:
+              <input type="text" step="0.01" pattern="[+-]?(\d*\.\d+|\d+\.\d*|\d+)" oninput="validity.valid||(value='');" title="Wprowadź liczbę rzeczywistą" required>
+               -->
+
