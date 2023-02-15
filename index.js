@@ -62,24 +62,29 @@ function validateForm() {
     let mathMode = document.getElementById("inputMathMode").value;
 
     let quaternion = new Quaternion(input1value, input2value, input3value, input4value);
+    document.getElementById("quaternionAlgebraicOutput").innerText = quaternion;
 
 
     switch (mathMode) {
         case "Sprzężenie":
-            document.getElementById("quaternionOutput").innerText = `Sprzężenie kwaternionu q=${quaternion} wynosi ${quaternion.conjugate()}`;
-
+            document.getElementById("quaternionOutputValue").innerText = `Jego sprzężenie wynosi: ${quaternion.conjugate()}`;
+            document.getElementById("quaternionOutput").style.visibility="unset";
             break;
 
         case "Wyznacznik":
-            document.getElementById("quaternionOutput").innerText = `Wyznacznik kwaternionu q=${quaternion} wynosi ${quaternion.determinant()}`;
+            document.getElementById("quaternionOutputValue").innerText = `Jego wyznacznik wynosi: ${quaternion.determinant()}`;
+            document.getElementById("quaternionOutput").style.visibility="unset";
             break;
 
         case "Moduł":
-            document.getElementById("quaternionOutput").innerText = `Moduł kwaternionu q=${quaternion} wynosi ${quaternion.magnitude()}`;
+            document.getElementById("quaternionOutputValue").innerText = `Jego moduł wynosi: ${quaternion.magnitude()}`;
+            document.getElementById("quaternionOutput").style.visibility="unset";
             break;
 
         case "Odwrotność":
-            document.getElementById("quaternionOutput").innerText = `Odwrotność kwaternionu q=${quaternion} wynosi ${quaternion.reciprocal()}`;
+            document.getElementById("quaternionOutputValue").innerText = `Jego odwrotność wynosi: ${quaternion.reciprocal()}`;
+            document.getElementById("quaternionOutput").style.visibility="unset";
+            document.getElementById("quaternionOutput").style.height="8em";
             break;
     }
 }

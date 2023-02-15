@@ -22,20 +22,16 @@ main {
 
 section:nth-of-type(1) {
     border-radius: 6px;
-    flex-basis: 15%;
+    flex-basis: 20%;
     background-color: white;
-    height: 900px;
-    padding: 40px;
-    -webkit-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
-    -moz-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
-    box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    height: 1200px;
 }
 
 section:nth-of-type(2) {
     background-color: white;
     border-radius: 6px;
-    flex-basis: 55%;
-    padding: 40px;
+    flex-basis: 50%;
+    padding: 80px;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(129, 130, 139, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(129, 130, 139, 1);
     box-shadow: 8px 8px 24px 0px rgba(129, 130, 139, 1);
@@ -45,13 +41,33 @@ h3.sectionHeader {
     margin-top: 5vw;
 }
 
-div.coefficientFlexContainer {
-    height: 600px;
+div#coefficientFlexContainer {
+    padding: 40px;
+    width: inherit;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    -webkit-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    -moz-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
 }
+
+div#quaternionOutput {
+    margin-top: 50px;
+    line-height: 1.3em;
+    border-radius: 6px;
+    width: inherit;
+    background-color: white;
+    padding: 20px;
+    height: 60px;
+    -webkit-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    -moz-box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    box-shadow: 8px 8px 40px -14px rgba(129, 130, 139, 1);
+    visibility: hidden;
+}
+
 
 div.coefficientFlexBox {
 
@@ -88,10 +104,6 @@ a {
     color: #4db8ff;
 }
 
-div#quaternionOutput {
-    height: 3em;
-    line-height: 1.3em;
-}
 
 ul li {
     line-height: 1.6em;

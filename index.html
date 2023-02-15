@@ -5,6 +5,10 @@
         <title>Kwaterniony</title>
 
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
         <script src="index.js"></script>
@@ -15,12 +19,11 @@
         </nav>
       <!--  <img src="img_3.png" style="width: 1400px; height: auto; display: block; margin: 60px auto 0;"> -->
         <main>
-
             <section>
-                <img src="img/quaternion-small-icon.png" style="height: 260px; width: auto; display: block; margin-left: auto; margin-right: auto;">
-                <br />
-                <br />
-                <div class="coefficientFlexContainer">
+                <div id="coefficientFlexContainer">
+                    <img src="img/quaternion-small-icon.png" style="height: 260px; width: auto; display: block; margin-left: auto; margin-right: auto;">
+                    <br />
+                    <br />
                     <div>
 
                         Chcę policzyć...
@@ -61,11 +64,15 @@
 
                     <button id="button-validateForm" onclick="validateForm()">Wynik</button>
 
+                </div>
 
-                    Podany kwaternion: <span id="quaternionAlgebraicOutput"></span>
+                <div id="quaternionOutput">
+                    Podany kwaternion:
+                    <span id="quaternionAlgebraicOutput"></span>
+                    <br />
+                    <br />
 
-
-                    <div id="quaternionOutput">
+                    <div id="quaternionOutputValue">
 
                     </div>
                 </div>
@@ -197,12 +204,11 @@
                 <h3 class="sectionHeader" id="contentsQuaternionConjugate">Sprzężenie kwaternionu</h3>
                 Sprzężenie kwaternionu definiujemy jako:
                 \begin{equation*}
-                \overline{\rm q} \; = \; ae \; - \; bi \; - \; cj \; - \; dk
+                \overline{\rm q} \; = \; ae \; - \; bi \; - \; cj \; - \; dk,
                 \end{equation*}
 
-                gdzie:
                 \begin{equation*}
-                a, b, c, d \; \in \; \mathbb{R}
+                a, b, c, d  \;  \in  \; \mathbb{R}
                 \end{equation*}
 
 
@@ -210,11 +216,9 @@
                 W następnej kolejności przyjrzymy się wyznacznikowi kwaternionu przy okazji metody
                 Wyznacznik kwaternionu to:
                 \begin{equation*}
-                a^2+b^2+c^2+d^2
+                a^2+b^2+c^2+d^2,
                 \end{equation*}
 
-
-                gdzie:
                 \begin{equation*}
                 a, b, c, d \; \in \; \mathbb{R}
                 \end{equation*}
@@ -223,10 +227,9 @@
                 Moduł kwaternionu to pierwiastek kwadratowy z wyznacznika:
                 oznaczenie =
                 \begin{equation*}
-                \sqrt{a^2+b^2+c^2+d^2}
+                \sqrt{a^2+b^2+c^2+d^2},
                 \end{equation*}
 
-                gdzie:
                 \begin{equation*}
                 a, b, c, d \; \in \; \mathbb{R}
                 \end{equation*}
@@ -237,7 +240,11 @@
                 Jest to iloraz sprzężenia kwaternionu i jego modułu.
 
                 \begin{equation*}
-                q^{-1} = \frac{\overline{\rm q} }{\|q\|} = \frac{\; ae \; - \; bi \; - \; cj \; - \; dk}{\sqrt{a^2+b^2+c^2+d^2}}
+                q^{-1} = \frac{\overline{\rm q} }{\|q\|} = \frac{\; ae \; - \; bi \; - \; cj \; - \; dk}{\sqrt{a^2+b^2+c^2+d^2}},
+                \end{equation*}
+
+                \begin{equation*}
+                a, b, c, d \; \in \; \mathbb{R}
                 \end{equation*}
 
                 <br />
